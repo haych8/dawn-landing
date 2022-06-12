@@ -126,3 +126,14 @@ form .newsletter-form__field-wrapper button{
     margin: 3rem 0;
   }
 }
+
+
+.fancybox-slide{
+  background: rgba(0,0,0,.36)
+}
+
+.fancybox-content{
+  width: 100%!important;
+  max-width: 500px!important;
+  border: 3px solid #000!important;
+}
