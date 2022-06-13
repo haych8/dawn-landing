@@ -36,6 +36,16 @@
 
 <div id="custom-signup-main" class="type--{{ section.settings.style }}">
   {%- if section.settings.style == 'no-land' or section.settings.style == 'sport-ivory' -%}
+  {%- style -%}
+      .fancybox-content{
+        border-color: {{ section.settings.text_color }}!important;
+        background-color: {{ section.settings.background_color }}!important;
+      }
+      form .newsletter-form__field-wrapper input{
+        border: 2px solid {{ section.settings.text_color }}!important;
+        color:#fff!important;
+      }
+    {%- endstyle -%}
     <div class="coming-soon"><span>coming</span><span>soon</span></div>
     <div class="container">
       <div class="row">
