@@ -80,6 +80,7 @@
         "1656540455f02703d9-2"
       ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/livrae-horse-asset.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
