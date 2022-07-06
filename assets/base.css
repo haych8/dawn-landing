@@ -2887,9 +2887,13 @@ details-disclosure > details {
   font-weight: var(--font-body-weight-bold);
 }
 
+  
+  
+  
+  
   @media(min-width:990px){
 body .header{
-padding-left: 0.5rem;
-padding-right: 0.5rem;
+padding-left: 0rem;
+padding-right: 0rem;
 }
 }
