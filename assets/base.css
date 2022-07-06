@@ -2891,9 +2891,6 @@ details-disclosure > details {
   
   
   
-  @media(min-width:990px){
-body .header{
-padding-left: 0rem;
-padding-right: 0rem;
-}
+body .header__heading-link{
+padding:0;
 }
