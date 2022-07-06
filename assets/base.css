@@ -2890,7 +2890,6 @@ details-disclosure > details {
   
   
   
-  
-body .header__heading-link{
-padding:0;
+.index-{
+    margin-bottom: 0px!important;
 }
