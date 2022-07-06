@@ -30,7 +30,8 @@
     {% render 'meta-tags' %}
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
-    {{ content_for_header }}  {{ shop.metafields.fontify.stylesheets }}
+    {{ content_for_header }} 
+ {{ shop.metafields.fontify.stylesheets }}
 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
@@ -270,3 +271,8 @@
     {%- endif -%}
   </body>
 </html>
+
+/* --kelly: make vertical padding less for header*/
+header.site-header {
+    padding:  10px 0; 
+}
