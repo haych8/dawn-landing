@@ -2887,9 +2887,11 @@ details-disclosure > details {
   font-weight: var(--font-body-weight-bold);
 }
 
-  
-  
-  
-.index-{
-    margin-bottom: 0px!important;
+@media only screen and (min-width: 1050px)
+{
+.feature-row {
+     margin: 0!important;
 }
+} 
+  
+  
