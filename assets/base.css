@@ -2888,5 +2888,9 @@ details-disclosure > details {
 }
 
  
-  
+ .index .custom-html-section .container {
+	width: 100%;
+	max-width: 100%;
+	padding: 20px 15px;
+} 
   
