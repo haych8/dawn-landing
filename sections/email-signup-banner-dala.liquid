@@ -4,10 +4,8 @@
 {{ 'newsletter-section.css' | asset_url | stylesheet_tag }}
 {{ 'section-email-signup-banner.css' | asset_url | stylesheet_tag }}
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
-<script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,8 +47,16 @@
     <div class=""><span></span><span></span></div>
     <div class="container">
       <div class="row">
-        <div class="col-12">
-          <img src="{{ section.settings.logo | image_url }}" alt="" class="logo" />
+        <div class="col-12 flex">
+          <div class="window" id="draggable-window">
+            <img src="{{ 'video-window.webp' | asset_url }}" alt>
+            <video autoplay muted loop><source src="{{ 'noland-video.mp4' | asset_url }}"></video>
+          </div>
+          <iframe src="https://giphy.com/embed/Eigt3W6fDS2JixHuDV" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+          <div class="relative">
+            <div class="purple-blur">a</div>
+            <img src="{{ section.settings.logo | image_url }}" alt="{{ section.settings.logo.alt | escape }}" class="logo" loading="lazy"/>
+          </div>
         </div>
       </div>
       {%- if section.settings.text != blank -%}
@@ -62,6 +68,12 @@
           </div>
         </div>
       {%- endif -%}
+      <div class="relative row">
+        <div class="window" id="draggable-window2">
+          <img src="{{ 'loading-window.webp' | asset_url }}" alt loading="lazy" id="loading-window">
+          <img src="{{ 'text-window.webp' | asset_url }}" alt id="text-window">
+        </div>
+      </div>
       <div class="row justify-content-center">
         <div class="col-12 col-md-8">
           <ul class="links">
@@ -281,6 +293,8 @@
   </div>
 </div>
 
+<script src="{{ 'draggable.js' | asset_url }}" defer></script>
+
 {% schema %}
 {
   "name": "Email Sign Up Custom",
@@ -294,8 +308,8 @@
     },
     {
       "type": "image_picker",
-      "id": "image",
-      "label": "Background Image"
+      "id": "gif",
+      "label": "Gif Image"
     },
     {
       "type": "color",
