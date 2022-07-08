@@ -2887,3 +2887,9 @@ details-disclosure > details {
   font-weight: var(--font-body-weight-bold);
 }
 
+  @media screen and (min-width: 750px)
+{
+.image-with-text.image-with-text--no-overlap.page-width.isolate.collapse-corners.section-template--14516161413173__1643789199f8459d15-padding {
+    max-width: 100%;
+}
+}
