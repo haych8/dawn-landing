@@ -32,6 +32,13 @@ ul.links{
   filter: blur(80px);
   z-index: 0;
 }
+@media screen and (max-width: 1024px) {
+  @supports (-webkit-touch-callout: none) {
+    .purple-blur {
+      filter: blur(45px);
+    }
+  }
+}
 .col-12.flex {
   position: relative;
   z-index: 0;
