@@ -1,5 +1,5 @@
-dragElement(document.getElementById("draggable-window"));
-dragElement(document.getElementById("draggable-window2"))
+dragElement(document.getElementById("window"));
+dragElement(document.getElementById("window2"))
 
 function dragElement(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -42,9 +42,23 @@ function dragElement(elmnt) {
     }
 }
 
+function printLetterByLetter(destination, message, speed){
+    var i = 0;
+    var interval = setInterval(function(){
+        document.getElementById(destination).innerHTML += message.charAt(i);
+        i++;
+        if (i > message.length){
+            clearInterval(interval);
+        }
+    }, speed);
+}
+
 window.addEventListener("load", ()=>{
     setTimeout(() => {
-        document.getElementById("loading-window").style.display = "none"
-        document.getElementById("text-window").style.display = "inline"
-    }, 3000)
+        document.getElementById("terminal-loading").style.display = "none"
+        document.getElementById("terminal-content").style.display = "block"
+        setTimeout(()=>{
+            printLetterByLetter("terminal-content", document.getElementById("terminal-noscript").innerHTML,70)
+        },100)
+    }, 1500)
 })

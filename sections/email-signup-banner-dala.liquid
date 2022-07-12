@@ -14,6 +14,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 {%- style -%}
+  @font-face {
+    font-family: chicago;
+    src: url({{ 'ChicagoFLF.ttf' | asset_url }});
+    font-weight: 400;
+  }
   *, a{
     font-family: 'Inter', sans-serif;
     color: {{ section.settings.text_color }};
@@ -28,7 +33,7 @@
     min-height: 100vh;
     width: 100%;
     height: 100%;
-    padding: 6rem 0;
+    padding: 2rem 0;
   }
 {%- endstyle -%}
 
@@ -46,17 +51,27 @@
     {%- endstyle -%}
     <div class=""><span></span><span></span></div>
     <div class="container">
-      <div class="row">
+      <div class="purple-blur"> </div>
+      <div class="row main-row">
         <div class="col-12 flex">
-          <div class="window" id="draggable-window">
+          <div class="window" id="window">
+            <div class="header" id="windowheader"></div>
             <img src="{{ 'video-window.webp' | asset_url }}" alt>
             <video autoplay muted loop><source src="{{ 'noland-video.mp4' | asset_url }}"></video>
           </div>
-          <iframe src="https://giphy.com/embed/Eigt3W6fDS2JixHuDV" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-          <div class="relative">
-            <div class="purple-blur">a</div>
-            <img src="{{ section.settings.logo | image_url }}" alt="{{ section.settings.logo.alt | escape }}" class="logo" loading="lazy"/>
+          <img src="{{ 'transparent-no-land.gif' | asset_url }}" alt class="giphy-embed" loading="lazy">
+          <img src="{{ section.settings.logo | image_url }}" alt="{{ section.settings.logo.alt | escape }}" class="logo" loading="lazy"/>
+          
+        <div class="window" id="window2">
+          <div class="header" id="window2header"></div>
+          <img src="{{ 'text-window.webp' | asset_url }}" alt id="text-window">
+          <img src="{{ 'text-window2.webp' | asset_url }}" alt id="text-window2">
+          <div id="text-window-content">
+            <p id="terminal-loading">Loading...</p>
+            <p id="terminal-content"></p>
+            <noscript id="terminal-noscript">{{ section.settings.terminal_text }}</noscript>
           </div>
+        </div>
         </div>
       </div>
       {%- if section.settings.text != blank -%}
@@ -68,29 +83,23 @@
           </div>
         </div>
       {%- endif -%}
-      <div class="relative row">
-        <div class="window" id="draggable-window2">
-          <img src="{{ 'loading-window.webp' | asset_url }}" alt loading="lazy" id="loading-window">
-          <img src="{{ 'text-window.webp' | asset_url }}" alt id="text-window">
-        </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-8">
-          <ul class="links">
-            <li><a data-fancybox data-src="#hidden-subscribe" href="javascript:;">Subscribe</a></li>
-            {%- if section.settings.link != blank -%}
-              <li><a href="{{section.settings.link}}" target="_blank">
-                {%- if section.settings.link_title != blank-%}
-                  {{section.settings.link_title}}
-                {%- else -%}
-                  Instagram
-                {%- endif -%}
-              </a></li>
-            {%- endif -%}
-          </ul>
-        </div>
-      </div>
     </div>
+
+    <div class="links-container">
+      <ul class="links">
+        <li><a data-fancybox data-src="#hidden-subscribe" href="javascript:;">Subscribe</a></li>
+        {%- if section.settings.link != blank -%}
+          <li><a href="{{section.settings.link}}" target="_blank">
+            {%- if section.settings.link_title != blank-%}
+              {{section.settings.link_title}}
+            {%- else -%}
+              Instagram
+            {%- endif -%}
+          </a></li>
+        {%- endif -%}
+        </ul>
+    </div>
+
   {%- elsif section.settings.style == 'livrae' -%}
   <div class="container">
     <div class="row">
@@ -310,6 +319,12 @@
       "type": "image_picker",
       "id": "gif",
       "label": "Gif Image"
+    },
+    {
+      "type": "textarea",
+      "id": "terminal_text",
+      "default": "Loading...",
+      "label": "Terminal Text"
     },
     {
       "type": "color",
